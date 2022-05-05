@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-pod
+  name: apache2
 spec:
   replicas: 10
   selector:
     matchLabels:
-      app: nginx-pod
+      app: apache2
   template:
     metadata:
       labels:
-        app: nginx-pod
+        app: apache2
     spec:
       containers:
-        - name: nginx-pod
-          ## Alterando a imagem pelo Docker HUB
-          image: nginx:latest
-          #image: gmedeirosnet/apache2-gmedeiros
+        - name: apache2
+          image: gmedeirosnet/apache2-gmedeiros
           ports:
             - containerPort: 80
