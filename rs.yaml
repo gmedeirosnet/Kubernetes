@@ -3,6 +3,7 @@ kind: ReplicaSet
 metadata:
   name: nginx-pod
 spec:
+  replicas: 5
   selector:
     matchLabels:
       app: nginx-pod
@@ -13,6 +14,8 @@ spec:
     spec:
       containers:
         - name: nginx-pod
-          image: nginx:latest
+          ## Alterando a imagem pelo Docker HUB
+          #image: nginx:latest
+          image: gmedeirosnet/apache2-gmedeiros
           ports:
             - containerPort: 80
