@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: apache2
+  name: nginx
   labels:
-    name: apache2
+    name: nginx
 spec:
   containers:
-  - name: apache2
-    image: gmedeirosnet/apache2-gmedeiros
+  - name: nginx
+    image: nginx
     resources:
       limits:
         memory: "128Mi"
@@ -15,9 +15,9 @@ spec:
     ports:
       - containerPort: 80
     volumeMounts:
-      - name: apache2-volume
-        mountPath: /var/www/html
+      - name: volume-nginx
+        mountPath: /var/www/htdocs
   volumes:
-    - name: apache2-volume
+    - name: volume-nginx
       persistentVolumeClaim:
-        claimName: apache2-pvc
+        claimName: volume-nginx-claim
