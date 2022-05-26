@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: apache2
+  name: nginx
 spec:
   replicas: 10
   selector:
     matchLabels:
-      app: apache2
+      app: nginx
   template:
     metadata:
       labels:
-        app: apache2
+        app: nginx
     spec:
       containers:
-        - name: apache2
-          image: gmedeirosnet/apache2-gmedeiros
+        - name: nginx
+          image: nginx/nginx:latest
           ports:
             - containerPort: 80
